@@ -94,18 +94,3 @@ function Form() {
 }
 
 export default Form;
-
-// Логика ванильного Redux (без Toolkit)
-
-// export default Form;
-// const mapStateToProps = (state) => {
-//   return {
-//     baseContacts: state.contacts,
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch) => ({
-//   onSubmit: (newContact) => dispatch(addContact(newContact)),
-// })
-
-//export default connect(null, mapDispatchToProps)(Form)

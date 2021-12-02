@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {login} from 'redux/auth/auth-operations'
+import { login } from 'redux/auth/auth-operations'
+import s from './Views.module.css'
 
 export default function LoginView() {
     const [email, setEmail] = useState('');
@@ -25,16 +26,15 @@ export default function LoginView() {
     }
     
     return (
-        <div>
+        <div className={s.section}>
             <h1> You are a part of our miraculous team! Let's login and open all your possibilities </h1>
-            <form onSubmit={handleSubmit}>
-                 
+            <form onSubmit={handleSubmit}>               
                 <label>
                     Email
                     <input
                         type='email'
                         name='email'
-                        value='email'
+                        value={email}
                         onChange={handleChange}
                     >                    
                     </input>
@@ -44,7 +44,7 @@ export default function LoginView() {
                     <input
                         type='Password'
                         name='Password'
-                        value='Password'
+                        value={password}
                         onChange={handleChange}
                     >                    
                     </input>

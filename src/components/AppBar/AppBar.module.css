@@ -1,0 +1,28 @@
+header {
+  justify-content: center;
+  display: flex;
+  align-items: baseline;
+}
+link {
+  display: 'inline-block';
+  text-decoration: 'none';
+  padding: 12;
+  font-weight: 700;
+  color: '#2A363B';
+}
+.authNav {
+  margin-right: 20px;
+}
+
+.avatar {
+  margin-right: 4;
+}
+
+.name {
+  font-weight: 700;
+  margin-right: 12px;
+}
+.container {
+  display: flex;
+  align-items: center;
+}

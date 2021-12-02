@@ -1,0 +1,24 @@
+.section {
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+label {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+input {
+  margin-left: 10px;
+}
+form {
+  align-items: center;
+}
+
+.homePage {
+  text-align: center;
+  background-image: image('/');
+}

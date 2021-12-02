@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {register} from 'redux/auth/auth-operations'
+import { register } from 'redux/auth/auth-operations'
+import s from './Views.module.css'
 
 export default function RefisterView() {
     const [name, setName] = useState('');
@@ -30,7 +31,7 @@ export default function RefisterView() {
     }
     
     return (
-        <div>
+        <div className={s.section}> 
             <h1> Let's register and become a part of our miraculous team</h1>
             <form onSubmit={handleSubmit}>
                 <label>
@@ -38,7 +39,7 @@ export default function RefisterView() {
                     <input
                         type='name'
                         name='name'
-                        value='name'
+                        value={name}
                         onChange={handleChange}
                     >                    
                     </input>
@@ -48,7 +49,7 @@ export default function RefisterView() {
                     <input
                         type='email'
                         name='email'
-                        value='email'
+                        value={email}
                         onChange={handleChange}
                     >                    
                     </input>
@@ -56,9 +57,9 @@ export default function RefisterView() {
                   <label>
                     Password
                     <input
-                        type='Password'
-                        name='Password'
-                        value='Password'
+                        type='password'
+                        name='password'
+                        value={password}
                         onChange={handleChange}
                     >                    
                     </input>
