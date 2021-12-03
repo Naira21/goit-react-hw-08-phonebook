@@ -2,8 +2,9 @@
 import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
 import Form from 'components/Form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchContactThunk } from 'redux/contacts/operations';
+
 
 function ContactsView() {
   const dispatch = useDispatch();
@@ -17,8 +18,9 @@ function ContactsView() {
       <Filter />
       <ContactList />
     </div>
+    // <h1>Contacts List</h1>
 
-  );
+  )
 }
 
 export default ContactsView;

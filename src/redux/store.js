@@ -13,14 +13,14 @@ import {
 } from 'redux-persist';
 
 import { items, filter, loading } from './contacts/reducers';
-import authReducer from './auth/auth-reducers'
-// export const authReducer = combineReducers({ auth });
+import authReducer from './auth/auth-slice';
 
-const authPersistConfig = {
-  key: 'auth',
-  storage,
-  whitelist:['token'],
-}
+
+// const authPersistConfig = {
+//   key: 'auth',
+//   storage,
+//   whitelist:['token'],
+// }
 
 
 export const contactReducer = combineReducers({
@@ -32,7 +32,8 @@ export const contactReducer = combineReducers({
 export const store = configureStore({
   reducer: {
     contacts: contactReducer,
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: authReducer,
+    // auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

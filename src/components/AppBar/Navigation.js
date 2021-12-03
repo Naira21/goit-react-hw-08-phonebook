@@ -4,18 +4,22 @@ import s from './AppBar.module.css'
 import { getIsLoggedIn } from "redux/auth/auth-selectors"
 
 export default function Navigation() {
-    const isLoggedIn = useSelector(state => state.state)
+    // const isLoggedIn = useSelector(false);
     return (
         <>
             <NavLink to="/" exact className={s.authNav} >
                 Home Page
             </NavLink>
+            <NavLink to="/contacts"  className={s.authNav}>
+                Phonebook
+            </NavLink>
 
-            {isLoggedIn &&
+            
+            {/* {isLoggedIn &&
                 <NavLink to="/contacts"  >
                     Phonebook
                 </NavLink>                
-            }
+            } */}
         </>
     )
 }

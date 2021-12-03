@@ -4,13 +4,18 @@ import UserMenu from './UserMenu'
 import s from './AppBar.module.css'
 import { getIsLoggedIn } from 'redux/auth/auth-selectors'
 import { useSelector } from 'react-redux';
+import ContactsView from 'views/ContactsView';
+
 
 export default function AppBar( ) {
-    const isLoggedIn = useSelector(getIsLoggedIn) 
+    // const isLoggedIn = useSelector(getIsLoggedIn) 
     return (
         <header>
             <Navigation />
-            {isLoggedIn ? <UserMenu /> : <AuthNav />}
+            <AuthNav />
+            {/*<UserMenu />*/}
+
+            {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
         </header>
     )
 }

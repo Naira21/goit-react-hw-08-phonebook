@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from 'redux/auth/auth-operations'
+import { useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/auth-thunks'
 import s from './Views.module.css'
 
 export default function LoginView() {
@@ -12,7 +12,7 @@ export default function LoginView() {
         e.preventDefault();
         setEmail('');
         setPassword('');
-        dispatch(login({email, password}))
+        //dispatch(login({email, password}))
     }
     const handleChange = ({ name, value }) => {
         switch (name) {
@@ -27,7 +27,8 @@ export default function LoginView() {
     
     return (
         <div className={s.section}>
-            <h1> You are a part of our miraculous team! Let's login and open all your possibilities </h1>
+            <h1> We know you, dear charmer! </h1>
+            <h2>Please, say "ALOHOMORA" and login</h2>
             <form onSubmit={handleSubmit}>               
                 <label>
                     Email

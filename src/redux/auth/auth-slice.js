@@ -1,45 +1,51 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, login, logOut, fetchCurrentUser } from "./auth-operations";
-
+import { registerThunk, login, logOut, fetchCurrentUser } from "./auth-thunks";
 
 const initState = {
-    user: { name: null, email: null },
-    token: null,
+    user: { name: '', email: '' },
+    token: '',
     isLoggedIn: false,
-    isRefreshing: false,
+    isAuth: false,
 }
 
 const authSlice = createSlice({
     name: 'auth',
-    initState,
+    initialState: initState,
     extraReducers: {
-        [register.fulfilled](state, action) {
-            state.user = action.payload.user;
-            state.token = action.payload.token;
-            state.isLoggedIn = true;
+        [registerThunk.fulfilled](state, action) {
+            state.user = action.payload.user,
+            state.token = action.payload.token,
+            state.isLoggedIn = false,
         },
-        [login.fulfilled](state, action) {
-            state.user = action.payload.user;
-            state.token = action.payload.token;
-            state.isLoggedIn = true;
+        [registerThunk.pending](state, action) {
+            isLoggedIn = true;
         },
-        [logOut.fulfilled](state, action) {
-            state.user = { name: null, email: null };
-            state.token = null;
-            state.isLoggedIn = false;
-        },
-        [fetchCurrentUser.pending](state) {
-            state.isRefreshing = true;
-        },
-        [fetchCurrentUser.fulfilled](state, action) {
-            state.user = action.payload;
-            state.isLoggedIn = true;
-            state.isRefreshing = false;
-        },
-        [fetchCurrentUser.rejected](state) {
-            state.isRefreshing = false;
-        }
-
     },
+    
 })
+// export const { renameProp} = authSlice.actions;
 export default authSlice.reducer;
+
+
+
+        // [login.fulfilled](state, action) {
+        //     state.user = action.payload.user;
+        //     state.token = action.payload.token;
+        //     state.isLoggedIn = true;
+        // },
+        // [logOut.fulfilled](state, action) {
+        //     state.user = { name: null, email: null };
+        //     state.token = null;
+        //     state.isLoggedIn = false;
+        // },
+        // [fetchCurrentUser.pending](state) {
+        //     state.isRefreshing = true;
+        // },
+        // [fetchCurrentUser.fulfilled](state, action) {
+        //     state.user = action.payload;
+        //     state.isLoggedIn = true;
+        //     state.isRefreshing = false;
+        // },
+        // [fetchCurrentUser.rejected](state) {
+        //     state.isRefreshing = false;
+        // }

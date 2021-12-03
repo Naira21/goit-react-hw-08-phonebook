@@ -1,9 +1,9 @@
-import { useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { register } from 'redux/auth/auth-operations'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { registerThunk } from 'redux/auth/auth-thunks'
 import s from './Views.module.css'
 
-export default function RefisterView() {
+export default function RegisterView() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -11,20 +11,23 @@ export default function RefisterView() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(registerThunk({ name, email, password }));
+        reset();
+    }
+
+    const reset = () => {
         setEmail('');
         setPassword('');
         setName('')
-        dispatch(register({name, email, password}))
     }
-
-    const handleChange = ({target:{ name, value }}) => {
-        switch (name) {
+    const handleChange = (e) => {
+        switch (e.target.name) {
             case 'name':
-                return setName(value);
+                return setName(e.target.value);
             case 'email':
-                return setEmail(value);
+                return setEmail(e.target.value);
             case 'password':
-                return setPassword(value);
+                return setPassword(e.target.value);
             default:
                 return;
         }
@@ -37,9 +40,10 @@ export default function RefisterView() {
                 <label>
                     Name
                     <input
-                        type='name'
+                        type='text'
                         name='name'
                         value={name}
+                        placeholder='Dumbledore'
                         onChange={handleChange}
                     >                    
                     </input>
@@ -47,9 +51,10 @@ export default function RefisterView() {
                 <label>
                     Email
                     <input
-                        type='email'
+                        type='mail'
                         name='email'
                         value={email}
+                        placeholder='hogwarts-office@gmail.com'
                         onChange={handleChange}
                     >                    
                     </input>
@@ -60,6 +65,7 @@ export default function RefisterView() {
                         type='password'
                         name='password'
                         value={password}
+                        placeholder='ridiculus2021'
                         onChange={handleChange}
                     >                    
                     </input>
