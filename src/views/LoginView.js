@@ -1,6 +1,6 @@
 import { useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from 'redux/auth/auth-thunks'
+import { loginThunk } from 'redux/auth/auth-thunks'
 import s from './Views.module.css'
 
 export default function LoginView() {
@@ -10,19 +10,22 @@ export default function LoginView() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        setEmail('');
-        setPassword('');
-        //dispatch(login({email, password}))
+        reset();
+        dispatch(loginThunk({email, password}))
     }
-    const handleChange = ({ name, value }) => {
-        switch (name) {
+    const handleChange = (e) => {
+        switch (e.target.name) {
             case 'email':
-                return setEmail(value);
+                return setEmail(e.target.value);
             case 'password':
-                return setPassword(value);
+                return setPassword(e.target.value);
             default:
                 return;
         }
+    }
+      const reset = () => {
+        setEmail('');
+        setPassword('');
     }
     
     return (
@@ -33,7 +36,7 @@ export default function LoginView() {
                 <label>
                     Email
                     <input
-                        type='email'
+                        type='mail'
                         name='email'
                         value={email}
                         onChange={handleChange}
@@ -43,8 +46,8 @@ export default function LoginView() {
                   <label>
                     Password
                     <input
-                        type='Password'
-                        name='Password'
+                        type='password'
+                        name='password'
                         value={password}
                         onChange={handleChange}
                     >                    

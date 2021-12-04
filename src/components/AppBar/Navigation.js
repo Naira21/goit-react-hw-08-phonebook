@@ -1,25 +1,21 @@
 import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import s from './AppBar.module.css'
-import { getIsLoggedIn } from "redux/auth/auth-selectors"
+import { getIsAuth } from "redux/auth/auth-selectors"
 
 export default function Navigation() {
-    // const isLoggedIn = useSelector(false);
+    const isAuth = useSelector(getIsAuth);
     return (
         <>
             <NavLink to="/" exact className={s.authNav} >
                 Home Page
             </NavLink>
-            <NavLink to="/contacts"  className={s.authNav}>
-                Phonebook
-            </NavLink>
-
-            
-            {/* {isLoggedIn &&
+           
+            {isAuth &&
                 <NavLink to="/contacts"  >
                     Phonebook
                 </NavLink>                
-            } */}
+            }                 
         </>
     )
 }

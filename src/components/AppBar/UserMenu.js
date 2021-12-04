@@ -2,25 +2,38 @@ import s from './AppBar.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserName } from 'redux/auth/auth-selectors'
 import logo from './default/logo.png'
-import { logout } from 'redux/auth/auth-thunks'
-import { Link } from 'react-router-dom'
+import { logoutThunk } from 'redux/auth/auth-thunks'
+
 
 export default function UserMenu() {
     const name = useSelector(getUserName);
     // const avatar = useSelector(logo);
     const dispatch = useDispatch();
+    const handleCLick = () => {
+        dispatch(logoutThunk())
+    }
+        
 
-    return (
-        <Link>
-            <div style={s.container}>
-                <img alt="" width="32" style={s.avatar} />
-                {/* src={avatar} */}
-                <span style={s.name}>Welcome, {name}</span>
-                <button type="button" >
-                    {/* onClick={dispatch(logOut())} */}
-                    Logout
-                </button>
-            </div>
-        </Link>
+    return (    
+        // <div style={s.container}>
+        //     {/* <img alt="" width="32" style={s.avatar} /> */}
+        //     {/* src={avatar} */}
+        //     {/* <span style={s.name}>Welcome, { name}</span> */}
+        //     <button type="button" onClick={handleCLick}>
+        //         Logout
+        //     </button>
+        // </div>
+        
+
+        <nav>
+            <p className={s.title}>Welcome, {name}</p>
+            <button
+                type="button"
+                onClick={handleCLick}
+                className={(s.button, s.addButton)}
+            >
+                Logout
+            </button>
+    </nav>
     )
 }
