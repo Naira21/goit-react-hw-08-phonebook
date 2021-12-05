@@ -25,16 +25,35 @@ export default function App() {
 
   const isAuth = false;
   return (
-    <>
-       <AppBar />
+     <>
+      <AppBar />
       {/*{!isRefreshing &&*/}
-        <Routes>
-        <Route path='/' element={<PublicRoute  component={HomeView}/>} />
-          <Route path='/register' element={<PublicRoute isAuth={isAuth} component={RegisterView}/>} />
-          <Route path='/login' element={<PublicRoute isAuth={isAuth} component={LoginView} />} />
-          <Route path='/contacts' element={<PrivateRoute isAuth={isAuth} component={ContactsView} />} />    
-        
-        
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+        <Route
+          path="register"
+          element={
+            <PublicRoute>
+              <RegisterView />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <PublicRoute>
+              <LoginView />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute>
+              <ContactsView />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </>
   )

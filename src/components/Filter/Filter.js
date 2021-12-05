@@ -22,15 +22,3 @@ function Filter({ id }) {
 }
 
 export default Filter;
-
-// Логика ванильного Redux (без Toolkit)
-
-// const mapStateToProps = (state) => ({
-//   value: state.filter,
-// })
-
-// const mapDispatchToProps = (dispatch)=>({
-//   onChange: e=>dispatch(filterContacts(e.currentTarget.value)),
-// })
-
-//export default connect(mapStateToProps, mapDispatchToProps)(Filter);

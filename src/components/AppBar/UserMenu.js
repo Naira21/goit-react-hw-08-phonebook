@@ -6,7 +6,7 @@ import { logoutThunk } from 'redux/auth/auth-thunks'
 
 
 export default function UserMenu() {
-    const name = useSelector(getUserName);
+    // const name = useSelector(getUserName);
     // const avatar = useSelector(logo);
     const dispatch = useDispatch();
     const handleCLick = () => {
@@ -26,11 +26,10 @@ export default function UserMenu() {
         
 
         <nav>
-            <p className={s.title}>Welcome, {name}</p>
+            <p className={s.title}>Welcome</p>
             <button
                 type="button"
-                onClick={handleCLick}
-                className={(s.button, s.addButton)}
+                onClick={handleCLick}              
             >
                 Logout
             </button>

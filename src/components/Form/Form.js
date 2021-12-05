@@ -16,25 +16,39 @@ function Form() {
     uuidv4();
   });
   const contacts = useSelector(filteredContacts);
+  console.log('contacts',contacts)
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
+   const handleSubmit = e => {
     e.preventDefault();
     const obj = {
       name,
       number,
       id: uuidv4(),
     };
-    resetForm();
-    const duplicateContact = contacts.find(
+     if (contacts.lenght >0) {
+       const duplicateContact = contacts.find(
       contact => contact.name === obj.name,
-    );
-    if (duplicateContact) {
-      alert(`${obj.name} is already in contacts`);
-      return;
-    }
+      );
+      if (duplicateContact) {
+        alert(`${obj.name} is already in contacts`);
+        return;
+       }
+       console.log('obj', obj);
+      
+     }
 
-    dispatch(addContactThunk(obj));
+    //  const duplicateContact = contacts.find(
+    //   contact => contact.name === obj.name,
+    //   );
+    //   if (duplicateContact) {
+    //     alert(`${obj.name} is already in contacts`);
+    //     return;
+    //   }
+     dispatch(addContactThunk(obj));
+      
+      
+      resetForm();
   };
 
   const resetForm = () => {

@@ -8,17 +8,23 @@ import { filteredContacts } from 'redux/contacts/selectors';
 export default function ContactList() {
   const contacts = useSelector(filteredContacts);
   const dispatch = useDispatch();
-
+console.log('contacts in filtered Contacts',contacts)
   return (
+    <>
+          <h1>list</h1>
     <ol className={s.list}>
-      {contacts.map(contact => (
+      {contacts &&
+      contacts.map(contact => (
         <ContactElement
           contact={contact}
           onDeleteContact={() => dispatch(deleteContactThunk(contact.id))}
           key={contact.id}
         />
-      ))}
+      ))
+      }
+      
     </ol>
+    </>
   );
 }
 
