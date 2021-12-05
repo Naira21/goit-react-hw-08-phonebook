@@ -1,20 +1,26 @@
 import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
-import Form from 'components/Form';
+import ContactsForm from 'components/Form';
 import { useDispatch } from 'react-redux';
 import { fetchContactThunk } from 'redux/contacts/operations';
+import s from './Views.module.css'
 
 function ContactsView() {
   const dispatch = useDispatch();
   dispatch(fetchContactThunk());
 
   return (
-    <div>
-      <h1>Have you had Harry Potter's phone? Please do it know</h1>
-      <Form />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+    <div className={s.contactsView}>
+      <h1 className={s.titleContView}>
+        Have you had Harry Potter's phone? <br/> Please note it now
+      </h1>
+      <section className={s.contactsSection}>
+        <ContactsForm />
+        <div className={s.contactsList}>
+        <Filter />
+        <ContactList />          
+      </div>
+      </section>
     </div>
   );
 }

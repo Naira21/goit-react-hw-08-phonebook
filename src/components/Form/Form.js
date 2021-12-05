@@ -6,7 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContactThunk } from 'redux/contacts/operations';
 import { filteredContacts } from 'redux/contacts/selectors';
 
-export default function Form() {
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+
+
+export default function ContactsForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contactIdName = useRef(() => {
@@ -58,37 +64,48 @@ export default function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor={contactIdName} className={s.labelText}>
+    <Form onSubmit={handleSubmit} className={s.formStyle}>
+      <Form.Group  className="mb-3" >
+        <Form.Label column sm="2" htmlFor={contactIdName} >
         Name
-      </label>
-      <input
-        id={contactIdName}
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-        required
-        onChange={handleChange}
-        value={name}
-      />
+        </Form.Label>
+        <Col sm="10">
+          <Form.Control
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            required
+            onChange={handleChange}
+            value={name} />
+        </Col>
+        <Form.Text className="text-muted">
+          The name can only consist of letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan, etc.
+        </Form.Text>
+      </Form.Group>
+      
 
-      <label htmlFor={contactIdNumber} className={s.labelText}>
+      <Form.Group  className="mb-3" >
+        <Form.Label column sm="2" htmlFor={contactIdName} >
         Number
-      </label>
-      <input
-        id={contactIdNumber}
-        type="tel"
-        name="number"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-        required
-        onChange={handleChange}
-        value={number}
-      />
-      <button type="submit" className={s.addBtn}>
+        </Form.Label>
+        <Col sm="10">
+          <Form.Control
+            id={contactIdNumber}
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            required
+            onChange={handleChange}
+            value={number} />
+        </Col>
+        <Form.Text className="text-muted">
+          Phone number must be digits and can contain spaces, dashes, parentheses and can start with +
+        </Form.Text>
+      </Form.Group>
+
+      <Button variant="secondary" type="submit" className={s.addBtn}>
         Add contact
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 }

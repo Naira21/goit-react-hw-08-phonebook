@@ -1,6 +1,8 @@
+import s from './AppBar.module.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserName } from 'redux/auth/auth-selectors'
 import { logoutThunk } from 'redux/auth/auth-thunks'
+import Button from 'react-bootstrap/Button';
 
 
 export default function UserMenu() {
@@ -11,14 +13,17 @@ export default function UserMenu() {
     }        
 
     return (
-        <div>
-            <p>Welcome, {name}</p>
-            <button
+        <div className={s.authUser}>
+            <p className={s.greetings}>Welcome, {name}!</p>
+
+            <Button
+                variant="secondary"
                 type="button"
-                onClick={handleCLick}              
+                onClick={handleCLick}
+                className={s.btnUser}
             >
                 Logout
-            </button>
+            </Button>
         </div>
     )
 }

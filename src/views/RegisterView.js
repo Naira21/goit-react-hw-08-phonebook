@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { registerThunk } from 'redux/auth/auth-thunks';
 import s from './Views.module.css';
 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 export default function RegisterView() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -34,41 +37,50 @@ export default function RegisterView() {
   };
 
   return (
-    <div className={s.section}>
-      <h1> Let's register and become a part of our miraculous team</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className={s.registerSection}>
+      <h1 className={s.registerTitle}> Let's register and join our team</h1>
+      <Form onSubmit={handleSubmit} className={s.registerForm}>
+        <Form.Group className="mb-3" controlId="formBasicName" >
+        <Form.Label>
           Name
-          <input
+          </Form.Label>
+            <Form.Control
             type="text"
+            placeholder="Dumbledore"
             name="name"
             value={name}
-            placeholder="Dumbledore"
-            onChange={handleChange}
-          ></input>
-        </label>
-        <label>
+            onChange={handleChange}/>      
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail" >
+          <Form.Label>
           Email
-          <input
-            type="mail"
+          </Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="hogwarts-office@mail.com"
             name="email"
             value={email}
-            placeholder="hogwarts-office@gmail.com"
-            onChange={handleChange}
-          ></input>
-        </label>
-        <label>
+            onChange={handleChange}/>        
+        </Form.Group>
+  
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>
           Password
-          <input
+          </Form.Label>
+            <Form.Control
             type="password"
+            placeholder="ridiculus2021"
             name="password"
             value={password}
-            placeholder="ridiculus2021"
-            onChange={handleChange}
-          ></input>
-        </label>
-        <button type="submit">Login</button>
-      </form>
+            onChange={handleChange}/>
+        </Form.Group>
+        
+        <Button variant="secondary" type="submit" className={s.btnText}>
+          Login
+        </Button>
+
+      </Form>
     </div>
   );
 }

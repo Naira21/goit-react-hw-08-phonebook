@@ -5,6 +5,7 @@ import s from './Contact.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContactThunk } from 'redux/contacts/operations';
 import { filteredContacts } from 'redux/contacts/selectors';
+
 export default function ContactList() {
   const contacts = useSelector(filteredContacts);
   const dispatch = useDispatch();

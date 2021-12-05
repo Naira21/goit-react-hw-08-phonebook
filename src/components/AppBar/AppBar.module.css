@@ -2,6 +2,7 @@ header {
   justify-content: center;
   display: flex;
   align-items: baseline;
+  background-color: #6c4b28d4;
 }
 link {
   display: 'inline-block';
@@ -25,4 +26,39 @@ link {
 .container {
   display: flex;
   align-items: center;
+}
+
+.btnText,
+.btnUser {
+  color: bisque;
+  font-weight: 700;
+}
+
+.bg {
+  margin: 20px 0;
+}
+.authUser {
+  display: inline-flex;
+  align-items: baseline;
+  margin-left: 300px;
+}
+
+.greetings,
+.btnUser {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+.greetings {
+  color: bisque;
+  font-weight: 700;
+  text-decoration: overline;
+}
+
+.btnUser {
+  font-weight: 500;
+  background-color: peru;
+  margin-left: 15px;
+  padding: 3px;
+  font-size: 15px;
 }

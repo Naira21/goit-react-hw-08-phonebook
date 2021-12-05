@@ -15,7 +15,6 @@ import {
 import { items, filter, loading } from './contacts/reducers';
 import authReducer from './auth/auth-slice';
 
-
 const authPersistConfig = {
   key: 'authToken',
   storage,

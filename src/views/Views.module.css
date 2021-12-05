@@ -1,7 +1,15 @@
-.section {
+.registerSection,
+.loginSection {
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
+
+  background-image: url('images/conference.jpg');
+  object-fit: contain;
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  padding-top: 40px;
 }
 
 label {
@@ -14,11 +22,83 @@ label {
 input {
   margin-left: 10px;
 }
-form {
+.formStyle,
+.loginForm,
+.registerForm {
   align-items: center;
+  margin-top: 30px;
+  background-color: #6c4b28d4;
+}
+.loginForm {
+  background-color: rgba(223, 217, 217, 0.623);
+}
+.loginForm,
+.registerForm {
+  width: 400px;
+  justify-content: center;
+  display: inline-block;
 }
 
 .homePage {
   text-align: center;
-  background-image: image('/');
+  background-image: url('images/castle.jpg');
+  object-fit: cover;
+  height: 100vmax;
+  width: 100%;
+}
+
+.btnText {
+  color: bisque;
+  font-weight: 700;
+}
+
+.homeSection {
+  padding-top: 100px;
+}
+
+.registerTitle {
+  color: honeydew;
+}
+.loginSection {
+  background-image: url('images/castle-snow.jpg');
+  object-fit: cover;
+  width: 1250px;
+  height: 1000px;
+}
+
+.lumos {
+  font-size: 150px;
+  margin-bottom: 120px;
+  color: burlywood;
+  font-family: auto;
+}
+
+.homeDesc {
+  text-align: left;
+  margin-left: 100px;
+}
+
+.contactsView {
+  justify-content: center;
+  text-align: center;
+  background-image: url('images/owl.jpg');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.contactsSection {
+  justify-content: left;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.contactsList {
+  margin-top: 50px;
+}
+
+.titleContView {
+  padding-top: 25px;
 }

@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { loginThunk } from 'redux/auth/auth-thunks';
 import s from './Views.module.css';
 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 export default function LoginView() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,31 +31,40 @@ export default function LoginView() {
     setPassword('');
   };
 
-  return (
-    <div className={s.section}>
+  return (    
+    <div className={s.loginSection}>
+      
       <h1> We know you, dear charmer! </h1>
       <h2>Please, say "ALOHOMORA" and login</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input
-            type="mail"
+      <Form onSubmit={handleSubmit} className={s.loginForm}>
+        <Form.Group className="mb-3" controlId="formBasicEmail" >
+          <Form.Label>
+          Email address
+          </Form.Label>    
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
             name="email"
             value={email}
-            onChange={handleChange}
-          ></input>
-        </label>
-        <label>
+            onChange={handleChange}/>        
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>
           Password
-          <input
+          </Form.Label>                    
+          <Form.Control
             type="password"
+            placeholder="Password"
             name="password"
             value={password}
-            onChange={handleChange}
-          ></input>
-        </label>
-        <button type="submit">Login</button>
-      </form>
+            onChange={handleChange}/>
+        </Form.Group>
+
+        <Button variant="secondary" type="submit" className={s.btnText}>
+          Login
+        </Button>
+      </Form>
     </div>
   );
 }
