@@ -70,5 +70,4 @@ const authSlice = createSlice({
     },
     
 })
-// export const { renameProp} = authSlice.actions;
 export default authSlice.reducer;

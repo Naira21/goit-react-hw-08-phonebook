@@ -1,6 +1,6 @@
 import s from './Contact.module.css';
 
-function ContactElement({ contact, onDeleteContact }) {
+export default function ContactElement({ contact, onDeleteContact }) {
   return (
     <li key={contact.id}>
       {contact.name}: {contact.phone}
@@ -10,5 +10,3 @@ function ContactElement({ contact, onDeleteContact }) {
     </li>
   );
 }
-
-export default ContactElement;

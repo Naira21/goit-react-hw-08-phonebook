@@ -10,13 +10,11 @@ function ContactsView() {
 
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h1>Have you had Harry Potter's phone? Please do it know</h1>
       <Form />
       <h2>Contacts</h2>
       <Filter />
-      <h1>List</h1>
       <ContactList />
-      <h1>List after component</h1>
     </div>
   );
 }

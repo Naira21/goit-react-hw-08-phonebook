@@ -13,21 +13,17 @@ import AppBar from 'components/AppBar/AppBar'
 import PrivateRoute from 'components/AppBar/PrivateRoute'
 import PublicRoute from 'components/AppBar/PublicRoute'
 
-// import {getRefreshing} from 'redux/auth/auth-selectors'
-
 export default function App() {
-  // const isRefreshing=useSelector(getRefreshing)
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(currentThunk())
   }, [dispatch]
   )
 
-  const isAuth = false;
   return (
      <>
       <AppBar />
-      {/*{!isRefreshing &&*/}
       <Routes>
         <Route path="/" element={<HomeView />} />
         <Route

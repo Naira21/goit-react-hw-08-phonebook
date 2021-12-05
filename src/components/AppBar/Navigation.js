@@ -10,10 +10,7 @@ export default function Navigation() {
       <NavLink to="/" className={s.authNav}>
         Home Page
       </NavLink>
-      <NavLink to="contacts">
-        Phonebook
-      </NavLink>
-      {/* {isAuth && <NavLink to="contacts">Phonebook</NavLink>} */}
+      {isAuth && <NavLink to="contacts">Phonebook</NavLink>}
     </>
   );
 }
