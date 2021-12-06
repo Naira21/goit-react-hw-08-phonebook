@@ -33,12 +33,13 @@ export default function LoginView() {
 
   return (    
     <div className={s.loginSection}>
-      
-      <h1> We know you, dear charmer! </h1>
-      <h2>Please, say "ALOHOMORA" and login</h2>
+      <section className={s.loginTitleSection}>
+        <h1> We know you, dear charmer! </h1>
+        <h2>Please, say "ALOHOMORA" and login</h2>
+      </section>
       <Form onSubmit={handleSubmit} className={s.loginForm}>
         <Form.Group className="mb-3" controlId="formBasicEmail" >
-          <Form.Label>
+          <Form.Label className={s.loginLabelText}>
           Email address
           </Form.Label>    
           <Form.Control
@@ -50,7 +51,7 @@ export default function LoginView() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>
+        <Form.Label className={s.loginLabelText}>
           Password
           </Form.Label>                    
           <Form.Control

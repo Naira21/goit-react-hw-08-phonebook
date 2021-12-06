@@ -12,13 +12,18 @@
   padding-top: 40px;
 }
 
+.loginTitleSection {
+  background-color: rgba(223, 217, 217, 0.623);
+}
 label {
   text-align: start;
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
-
+.loginLabelText {
+  font-weight: 700;
+}
 input {
   margin-left: 10px;
 }
@@ -60,10 +65,7 @@ input {
   color: honeydew;
 }
 .loginSection {
-  background-image: url('images/castle-snow.jpg');
-  object-fit: cover;
-  width: 1250px;
-  height: 1000px;
+  background-image: url('images/books.jpg');
 }
 
 .lumos {

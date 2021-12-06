@@ -8,20 +8,34 @@ const tokenThunk = {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    axios.defaults.headers.common.Authorization = '';
+    axios.defaults.headers.common.Authorization = "";
   },
 };
 
-export const registerThunk = createAsyncThunk('user/register', async user => {
-  const { data } = await axios.post('/users/signup', user);
-  tokenThunk.set(data.token);
-  return data;
+export const registerThunk = createAsyncThunk('user/register',
+  async (user, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/users/signup', user);
+      tokenThunk.set(data.token);
+      return data;      
+    } catch (error) {
+      alert("Hmmm...it doesn't work. Wave your wand again");
+      return rejectWithValue(error.message)
+    }
 });
 
-export const loginThunk = createAsyncThunk('users/login', async credentials => {
-  const { data } = await axios.post('/users/login', credentials);
-  tokenThunk.set(data.token);
-  return data;
+export const loginThunk = createAsyncThunk('users/login',
+  async (credentials, {rejectWithValue}) => {
+    try {
+      const { data } = await axios.post('/users/login', credentials);
+    tokenThunk.set(data.token);
+    return data;
+    } catch (error) {
+      rejectWithValue(error.message);
+      alert('Incorrect email or password');
+      return;
+    }
+    
 });
 
 export const logoutThunk = createAsyncThunk(
@@ -31,7 +45,7 @@ export const logoutThunk = createAsyncThunk(
       await axios.post('/users/logout');
       tokenThunk.unset();
     } catch (error) {
-      return rejectWithValue(error.message);
+      rejectWithValue(error.message);
     }
   },
 );
@@ -41,7 +55,7 @@ export const currentThunk = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
     const token = state.auth.token;
-    if (!token) return;
+    if (token==="") return;
     tokenThunk.set(token);
 
     try {

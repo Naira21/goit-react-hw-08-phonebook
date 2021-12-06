@@ -50,6 +50,7 @@ const authSlice = createSlice({
         [currentThunk.rejected](state, action) {
             state.isLoading = false;
             state.isAuth = false;
+            state.token = '';
             state.error = action.payload;            
         },
         [logoutThunk.fulfilled](state, action) {
