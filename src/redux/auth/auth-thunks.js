@@ -45,7 +45,7 @@ export const logoutThunk = createAsyncThunk(
       await axios.post('/users/logout');
       tokenThunk.unset();
     } catch (error) {
-      rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   },
 );

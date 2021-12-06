@@ -12,7 +12,7 @@ export default function AuthNav() {
                 className={s.authNav}
             > 
                 <Button variant="secondary" className={s.btnText}>
-                    Registrate to magic world
+                    Register to magic world
                 </Button>
             </NavLink>
             <NavLink
